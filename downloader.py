@@ -35,7 +35,7 @@ class Root(Tk):
         self.button1.grid(column=4, row=4,padx=95,pady=10)
     
     def Add_progress(self):
-        self.progress_bar=ttk.Progressbar(self.buttonframe,orient="horizontal",length=360,mode="determinate")
+        self.progress_bar=ttk.Progressbar(self.buttonframe,orient="horizontal",length=360,mode="determinate",maximum=100)
         self.progress_bar.grid(column=4, row=5, pady=10)
     
     def filename(self):
@@ -56,7 +56,8 @@ class Root(Tk):
             for chunk in tqdm.tqdm(self.r.iter_content(chunk_size=chunkSize), total=bars, unit="KB",desc=self.file, leave=True):
                 fp.write(chunk)
                 downloaded += chunkSize # increment the downloaded
-                self.progress_bar["value"] = (downloaded*100/size)#*100 #Default max value of tkinter progress is 100
+                self.progress_bar["value"] = (downloaded*100/size)
+                self.progress_bar.update()
         return
         
         
