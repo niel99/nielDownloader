@@ -8,7 +8,7 @@ Created on Fri Oct 12 12:00:28 2018
 
 import tqdm
 import requests
-from tkinter import *
+from tkinter import messagebox
 from tkinter import ttk
 from tkinter import filedialog
 
@@ -58,6 +58,8 @@ class Root(Tk):
                 downloaded += chunkSize # increment the downloaded
                 self.progress_bar["value"] = (downloaded*100/size)
                 self.progress_bar.update()
+            messagebox.showinfo('Complete','Download Complete')
+            
         return
         
 if __name__=="__main__":        
