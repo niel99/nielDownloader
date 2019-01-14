@@ -60,6 +60,6 @@ class Root(Tk):
                 self.progress_bar.update()
         return
         
-        
-window=Root()
-window.mainloop()
+if __name__=="__main__":        
+    window=Root()
+    window.mainloop()
